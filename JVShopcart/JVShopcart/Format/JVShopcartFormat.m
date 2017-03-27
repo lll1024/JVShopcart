@@ -67,7 +67,7 @@
 - (void)changeCountAtIndexPath:(NSIndexPath *)indexPath count:(NSInteger)count {
     JVShopcartBrandModel *brandModel = self.shopcartListArray[indexPath.section];
     JVShopcartProductModel *productModel = brandModel.products[indexPath.row];
-    if (count == 0) {
+    if (count <= 0) {
         count = 1;
     } else if (count > productModel.productStocks) {
         count = productModel.productStocks;
@@ -141,6 +141,8 @@
         [self.delegate shopcartFormatSettleForSelectedProducts:settleArray];
     }
 }
+
+#pragma mark private methods
 
 - (float)accountTotalPrice {
     float totalPrice = 0.f;

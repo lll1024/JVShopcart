@@ -13,7 +13,7 @@
 		4725BCD81E837B6900A358F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4725BCD61E837B6900A358F8 /* Main.storyboard */; };
 		4725BCDA1E837B6900A358F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4725BCD91E837B6900A358F8 /* Assets.xcassets */; };
 		4725BCDD1E837B6900A358F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4725BCDB1E837B6900A358F8 /* LaunchScreen.storyboard */; };
-		477A818B1E8663CD00EC085B /* UIButton+JVCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 477A818A1E8663CD00EC085B /* UIButton+JVCenter.m */; };
+		477A81911E88F69E00EC085B /* shopcart.plist in Resources */ = {isa = PBXBuildFile; fileRef = 477A81901E88F69E00EC085B /* shopcart.plist */; };
 		47E7A41D1E837EF500807EBE /* JVShopcartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E7A41C1E837EF500807EBE /* JVShopcartViewController.m */; };
 		47E7A4241E83805A00807EBE /* JVShopcartFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E7A4231E83805A00807EBE /* JVShopcartFormat.m */; };
 		47E7A4271E8396F600807EBE /* JVShopcartTableViewProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E7A4261E8396F600807EBE /* JVShopcartTableViewProxy.m */; };
@@ -75,7 +75,6 @@
 		47E7A4E61E83A00800807EBE /* IQUIView+IQKeyboardToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E7A4D51E83A00800807EBE /* IQUIView+IQKeyboardToolbar.m */; };
 		47E7A4E71E83A00800807EBE /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 47E7A4D81E83A00800807EBE /* IQKeyboardManager.bundle */; };
 		47E7A4EA1E83A5C300807EBE /* JVShopcartBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E7A4E91E83A5C300807EBE /* JVShopcartBottomView.m */; };
-		47E7A4EC1E83ADF200807EBE /* shopcart.plist in Resources */ = {isa = PBXBuildFile; fileRef = 47E7A4EB1E83ADF200807EBE /* shopcart.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,8 +88,7 @@
 		4725BCD91E837B6900A358F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4725BCDC1E837B6900A358F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4725BCDE1E837B6900A358F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		477A81891E8663CD00EC085B /* UIButton+JVCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+JVCenter.h"; sourceTree = "<group>"; };
-		477A818A1E8663CD00EC085B /* UIButton+JVCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+JVCenter.m"; sourceTree = "<group>"; };
+		477A81901E88F69E00EC085B /* shopcart.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = shopcart.plist; sourceTree = "<group>"; };
 		47E7A41B1E837EF500807EBE /* JVShopcartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVShopcartViewController.h; sourceTree = "<group>"; };
 		47E7A41C1E837EF500807EBE /* JVShopcartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVShopcartViewController.m; sourceTree = "<group>"; };
 		47E7A4221E83805A00807EBE /* JVShopcartFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVShopcartFormat.h; sourceTree = "<group>"; };
@@ -221,7 +219,6 @@
 		47E7A4D81E83A00800807EBE /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = IQKeyboardManager.bundle; sourceTree = "<group>"; };
 		47E7A4E81E83A5C300807EBE /* JVShopcartBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVShopcartBottomView.h; sourceTree = "<group>"; };
 		47E7A4E91E83A5C300807EBE /* JVShopcartBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVShopcartBottomView.m; sourceTree = "<group>"; };
-		47E7A4EB1E83ADF200807EBE /* shopcart.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = shopcart.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,7 +252,6 @@
 			isa = PBXGroup;
 			children = (
 				47E7A42E1E83984100807EBE /* Vendor */,
-				477A81871E8663CD00EC085B /* Category */,
 				47E7A4151E837E5600807EBE /* JVShopcart */,
 				4725BCD01E837B6900A358F8 /* AppDelegate.h */,
 				4725BCD11E837B6900A358F8 /* AppDelegate.m */,
@@ -273,27 +269,10 @@
 		4725BCCD1E837B6900A358F8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				47E7A4EB1E83ADF200807EBE /* shopcart.plist */,
+				477A81901E88F69E00EC085B /* shopcart.plist */,
 				4725BCCE1E837B6900A358F8 /* main.m */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		477A81871E8663CD00EC085B /* Category */ = {
-			isa = PBXGroup;
-			children = (
-				477A81881E8663CD00EC085B /* JVCenterButton */,
-			);
-			path = Category;
-			sourceTree = "<group>";
-		};
-		477A81881E8663CD00EC085B /* JVCenterButton */ = {
-			isa = PBXGroup;
-			children = (
-				477A81891E8663CD00EC085B /* UIButton+JVCenter.h */,
-				477A818A1E8663CD00EC085B /* UIButton+JVCenter.m */,
-			);
-			path = JVCenterButton;
 			sourceTree = "<group>";
 		};
 		47E7A4151E837E5600807EBE /* JVShopcart */ = {
@@ -611,7 +590,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				47E7A4EC1E83ADF200807EBE /* shopcart.plist in Resources */,
+				477A81911E88F69E00EC085B /* shopcart.plist in Resources */,
 				47E7A4E71E83A00800807EBE /* IQKeyboardManager.bundle in Resources */,
 				47E7A4821E83987400807EBE /* Info.plist in Resources */,
 				4725BCDD1E837B6900A358F8 /* LaunchScreen.storyboard in Resources */,
@@ -689,7 +668,6 @@
 				47E7A4AC1E839B8A00807EBE /* JVShopcartCountView.m in Sources */,
 				47E7A4871E83987400807EBE /* MASViewAttribute.m in Sources */,
 				47E7A4E31E83A00800807EBE /* IQPreviousNextView.m in Sources */,
-				477A818B1E8663CD00EC085B /* UIButton+JVCenter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

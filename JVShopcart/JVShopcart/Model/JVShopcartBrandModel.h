@@ -17,8 +17,8 @@
 
 @property (nonatomic, copy) NSString *brandName;
 
-@property (nonatomic, assign)BOOL isSelected; //记录相应section是否全选
+@property (nonatomic, assign)BOOL isSelected; //记录相应section是否全选（自定义）
 
-@property (nonatomic, strong) NSMutableArray *selectedArray;    //结算时筛选出选中的商品
+@property (nonatomic, strong) NSMutableArray *selectedArray;    //结算时筛选出选中的商品（自定义）
 
 @end

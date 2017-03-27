@@ -7,7 +7,6 @@
 //
 
 #import "JVShopcartBottomView.h"
-#import "UIButton+JVCenter.h"
 #import "Masonry.h"
 
 @interface JVShopcartBottomView ()
@@ -75,8 +74,8 @@
         _allSelectButton.titleLabel.font = [UIFont systemFontOfSize:13];
         [_allSelectButton setImage:[UIImage imageNamed:@"Unselected"] forState:UIControlStateNormal];
         [_allSelectButton setImage:[UIImage imageNamed:@"Selected"] forState:UIControlStateSelected];
+        [_allSelectButton setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 5)];
         [_allSelectButton addTarget:self action:@selector(allSelectButtonAction) forControlEvents:UIControlEventTouchUpInside];
-        [_allSelectButton centerStyle:CenterButtonImageStyleLeft padding:5];
     }
     return _allSelectButton;
 }
