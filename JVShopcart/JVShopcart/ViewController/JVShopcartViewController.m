@@ -116,7 +116,7 @@
         };
         
         _shopcartBottomView.shopcartBotttomViewSettleBlock = ^() {
-            
+            [weakSelf.shopcartFormat settleSelectedProducts];
         };
     }
     return _shopcartBottomView;

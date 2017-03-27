@@ -20,11 +20,12 @@
 @implementation JVShopcartFormat
 
 - (void)requestShopcartProductList {
-    //这里只是简单模拟一下请求数据
+    //在这里请求数据 当然我直接用本地数据模拟的
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"shopcart" ofType:@"plist"];
     NSMutableArray *dataArray = [NSMutableArray arrayWithContentsOfFile:plistPath];
     self.shopcartListArray = [JVShopcartBrandModel mj_objectArrayWithKeyValuesArray:dataArray];
     
+    //成功之后回调
     if ([self.delegate respondsToSelector:@selector(shopcartFormatRequestProductListDidSuccessWithArray:)]) {
         [self.delegate shopcartFormatRequestProductListDidSuccessWithArray:self.shopcartListArray];
     }
@@ -102,6 +103,7 @@
 }
 
 - (void)starProductAtIndexPath:(NSIndexPath *)indexPath {
+    //这里写收藏的网络请求
     
 }
 
@@ -119,13 +121,24 @@
 }
 
 - (void)settleSelectedProducts {
-    NSMutableArray *selectedProducts = [self.shopcartListArray mutableCopy];
+    NSMutableArray *settleArray = [[NSMutableArray alloc] init];
     for (JVShopcartBrandModel *brandModel in self.shopcartListArray) {
+        NSMutableArray *selectedArray = [[NSMutableArray alloc] init];
         for (JVShopcartProductModel *productModel in brandModel.products) {
-            if (productModel.isSelected == NO) {
-                [selectedProducts addObject:productModel];
+            if (productModel.isSelected) {
+                [selectedArray addObject:productModel];
             }
         }
+    
+        brandModel.selectedArray = selectedArray;
+        
+        if (selectedArray.count) {
+            [settleArray addObject:brandModel];
+        }
+    }
+    
+    if ([self.delegate respondsToSelector:@selector(shopcartFormatSettleForSelectedProducts:)]) {
+        [self.delegate shopcartFormatSettleForSelectedProducts:settleArray];
     }
 }
 

@@ -19,4 +19,6 @@
 
 @property (nonatomic, assign)BOOL isSelected; //记录相应section是否全选
 
+@property (nonatomic, strong) NSMutableArray *selectedArray;    //结算时筛选出选中的商品
+
 @end
