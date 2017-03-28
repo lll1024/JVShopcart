@@ -29,6 +29,24 @@ ___
 * 这是用户点击结算按钮的回调方法，这条API会将剔除了未选中ProductModel的模型数组回调给`JVShopcartViewController`，但并不改变原数据源因为用户随时可能返回。
 * 这是用户删除了购物车所有数据之后的回调方法，你可能会做些视图的隐藏或者提示。
 
+关于`JVShopcartFormat`，这个类主要负责网络请求与逻辑处理以及结果的回调。下面依次介绍这些方法：
+```objc
+- (void)requestShopcartProductList;
+- (void)selectProductAtIndexPath:(NSIndexPath *)indexPath isSelected:(BOOL)isSelected;
+- (void)selectBrandAtSection:(NSInteger)section isSelected:(BOOL)isSelected;
+- (void)changeCountAtIndexPath:(NSIndexPath *)indexPath count:(NSInteger)count;
+- (void)deleteProductAtIndexPath:(NSIndexPath *)indexPath;
+- (void)starProductAtIndexPath:(NSIndexPath *)indexPath;
+- (void)selectAllProductWithStatus:(BOOL)isSelected;
+- (void)settleSelectedProducts;
+```
+* 这是请求购物车数据源的方法，大家一般都是对AFNetworking进行二次封装来请求数据。
+* 这是用户选中了某个产品或某个row的处理方法，因为这会改变底部结算视图所以一定会回调上文协议中的第二个方法， 下同。
+* 这是用户选中了某个品牌或某个section的处理方法
+* 这是用户改变了商品数量的处理方法
+* 这是用户删除操作的处理方法
+* 这是用户收藏操作的处理方法，这里没有回调任何方法，也可以根据需求添加回调方法。
+* 这是用户结算操作的处理方法
 
 ## 有几个点需要注意：
 
