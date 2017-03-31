@@ -1,8 +1,8 @@
 # JVShopcart
 ___
 ## 效果图
-![2017-03-25 18.28.23.gif](http://upload-images.jianshu.io/upload_images/2338666-8df19e8b48664219.gif?imageMogr2/auto-orient/strip)
-GitHub: [https://github.com/lll1024/JVShopcart](https://github.com/lll1024/JVShopcart)
+![](https://github.com/lll1024/JVShopcart/blob/master/gif/2017-03-25%2018.28.23.gif)
+
 GitHub: [https://github.com/lll1024/JVShopcart/blob/master/gif/2017-03-25%2018.28.23.gif)
 
 ## 说明
