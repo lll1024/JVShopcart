@@ -1,7 +1,9 @@
 # JVShopcart
 ___
 ## 效果图
-![](http://upload-images.jianshu.io/upload_images/2338666-8df19e8b48664219.gif?imageMogr2/auto-orient/strip)
+![2017-03-25 18.28.23.gif](http://upload-images.jianshu.io/upload_images/2338666-8df19e8b48664219.gif?imageMogr2/auto-orient/strip)
+GitHub: [https://github.com/lll1024/JVShopcart](https://github.com/lll1024/JVShopcart)
+GitHub: [https://github.com/lll1024/JVShopcart/blob/master/gif/2017-03-25%2018.28.23.gif)
 
 ## 说明
 这是一个具备常规功能并方便改造的购物车模型 一共包含五个模块：
