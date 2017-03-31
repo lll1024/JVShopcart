@@ -102,8 +102,55 @@
     }
 }
 
+- (void)beginToDeleteSelectedProducts {
+    NSMutableArray *selectedArray = [[NSMutableArray alloc] init];
+    for (JVShopcartBrandModel *brandModel in self.shopcartListArray) {
+        for (JVShopcartProductModel *productModel in brandModel.products) {
+            if (productModel.isSelected) {
+                [selectedArray addObject:productModel];
+            }
+        }
+    }
+    
+    if ([self.delegate respondsToSelector:@selector(shopcartFormatWillDeleteSelectedProducts:)]) {
+        [self.delegate shopcartFormatWillDeleteSelectedProducts:selectedArray];
+    }
+}
+
+- (void)deleteSelectedProducts:(NSArray *)selectedArray {
+    //网络请求
+    //根据请求结果决定是否批量删除
+    NSMutableArray *emptyArray = [[NSMutableArray alloc] init];
+    for (JVShopcartBrandModel *brandModel in self.shopcartListArray) {
+        [brandModel.products removeObjectsInArray:selectedArray];
+        
+        if (brandModel.products.count == 0) {
+            [emptyArray addObject:brandModel];
+        }
+    }
+    
+    if (emptyArray.count) {
+        [self.shopcartListArray removeObjectsInArray:emptyArray];
+    }
+    
+    if ([self.delegate respondsToSelector:@selector(shopcartFormatAccountForTotalPrice:totalCount:isAllSelected:)]) {
+        [self.delegate shopcartFormatAccountForTotalPrice:[self accountTotalPrice] totalCount:[self accountTotalCount] isAllSelected:[self isAllSelected]];
+    }
+    
+    if (self.shopcartListArray.count == 0) {
+        if ([self.delegate respondsToSelector:@selector(shopcartFormatHasDeleteAllProducts)]) {
+            [self.delegate shopcartFormatHasDeleteAllProducts];
+        }
+    }
+}
+
 - (void)starProductAtIndexPath:(NSIndexPath *)indexPath {
     //这里写收藏的网络请求
+    
+}
+
+- (void)starSelectedProducts {
+    //这里写批量收藏的网络请求
     
 }
 

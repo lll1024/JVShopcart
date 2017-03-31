@@ -19,6 +19,7 @@
 
 - (void)shopcartFormatSettleForSelectedProducts:(NSArray *)selectedProducts;
 
+- (void)shopcartFormatWillDeleteSelectedProducts:(NSArray *)selectedProducts;
 - (void)shopcartFormatHasDeleteAllProducts;
 
 @end
@@ -33,7 +34,10 @@
 - (void)selectBrandAtSection:(NSInteger)section isSelected:(BOOL)isSelected;
 - (void)changeCountAtIndexPath:(NSIndexPath *)indexPath count:(NSInteger)count;
 - (void)deleteProductAtIndexPath:(NSIndexPath *)indexPath;
+- (void)beginToDeleteSelectedProducts;
+- (void)deleteSelectedProducts:(NSArray *)selectedArray;
 - (void)starProductAtIndexPath:(NSIndexPath *)indexPath;
+- (void)starSelectedProducts;
 
 - (void)selectAllProductWithStatus:(BOOL)isSelected;
 - (void)settleSelectedProducts;

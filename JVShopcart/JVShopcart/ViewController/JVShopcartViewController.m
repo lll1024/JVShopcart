@@ -14,12 +14,13 @@
 #import "JVShopcartFormat.h"
 #import "Masonry.h"
 
-@interface JVShopcartViewController () <JVShopcartFormatDelegate>
+@interface JVShopcartViewController ()<JVShopcartFormatDelegate>
 
 @property (nonatomic, strong) UITableView *shopcartTableView;   /**< 购物车列表 */
 @property (nonatomic, strong) JVShopcartBottomView *shopcartBottomView;    /**< 购物车底部视图 */
 @property (nonatomic, strong) JVShopcartTableViewProxy *shopcartTableViewProxy;    /**< tableView代理 */
 @property (nonatomic, strong) JVShopcartFormat *shopcartFormat;    /**< 负责购物车逻辑处理 */
+@property (nonatomic, strong) UIButton *editButton;    /**< 编辑按钮 */
 
 @end
 
@@ -53,6 +54,15 @@
 
 - (void)shopcartFormatSettleForSelectedProducts:(NSArray *)selectedProducts {
     
+}
+
+- (void)shopcartFormatWillDeleteSelectedProducts:(NSArray *)selectedProducts {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:[NSString stringWithFormat:@"确认要删除这%ld个宝贝吗？", selectedProducts.count] preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self.shopcartFormat deleteSelectedProducts:selectedProducts];
+    }]];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)shopcartFormatHasDeleteAllProducts {
@@ -96,7 +106,12 @@
         };
         
         _shopcartTableViewProxy.shopcartProxyDeleteBlock = ^(NSIndexPath *indexPath){
-            [weakSelf.shopcartFormat deleteProductAtIndexPath:indexPath];
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"确认要删除这个宝贝吗？" preferredStyle:UIAlertControllerStyleAlert];
+            [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+            [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                [weakSelf.shopcartFormat deleteProductAtIndexPath:indexPath];
+            }]];
+            [weakSelf presentViewController:alert animated:YES completion:nil];
         };
         
         _shopcartTableViewProxy.shopcartProxyStarBlock = ^(NSIndexPath *indexPath){
@@ -111,12 +126,20 @@
         _shopcartBottomView = [[JVShopcartBottomView alloc] init];
         
         __weak __typeof(self) weakSelf = self;
-        _shopcartBottomView.shopcartBotttomViewAllSelectBlock = ^(BOOL isSelected) {
+        _shopcartBottomView.shopcartBotttomViewAllSelectBlock = ^(BOOL isSelected){
             [weakSelf.shopcartFormat selectAllProductWithStatus:isSelected];
         };
         
-        _shopcartBottomView.shopcartBotttomViewSettleBlock = ^() {
+        _shopcartBottomView.shopcartBotttomViewSettleBlock = ^(){
             [weakSelf.shopcartFormat settleSelectedProducts];
+        };
+        
+        _shopcartBottomView.shopcartBotttomViewStarBlock = ^(){
+            [weakSelf.shopcartFormat starSelectedProducts];
+        };
+        
+        _shopcartBottomView.shopcartBotttomViewDeleteBlock = ^(){
+            [weakSelf.shopcartFormat beginToDeleteSelectedProducts];
         };
     }
     return _shopcartBottomView;
@@ -130,7 +153,28 @@
     return _shopcartFormat;
 }
 
+- (UIButton *)editButton {
+    if (_editButton == nil){
+        _editButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        _editButton.frame = CGRectMake(0, 0, 40, 40);
+        [_editButton setTitle:@"编辑" forState:UIControlStateNormal];
+        [_editButton setTitle:@"完成" forState:UIControlStateSelected];
+        [_editButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        _editButton.titleLabel.font = [UIFont systemFontOfSize:13];
+        [_editButton addTarget:self action:@selector(editButtonAction) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _editButton;
+}
+
+- (void)editButtonAction {
+    self.editButton.selected = !self.editButton.isSelected;
+    [self.shopcartBottomView changeShopcartBottomViewWithStatus:self.editButton.isSelected];
+}
+
 - (void)addSubview {
+    UIBarButtonItem *editBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.editButton];
+    self.navigationItem.rightBarButtonItem = editBarButtonItem;
+    
     [self.view addSubview:self.shopcartTableView];
     [self.view addSubview:self.shopcartBottomView];
 }
