@@ -3,8 +3,6 @@ ___
 ## 效果图
 ![](https://github.com/lll1024/JVShopcart/blob/master/gif/2017-03-31%2010.43.23.gif)
 
-GitHub: [https://github.com/lll1024/JVShopcart/blob/master/gif/2017-03-25%2018.28.23.gif)
-
 ## 说明
 这是一个具备常规功能并方便改造的购物车模型 一共包含五个模块：
 
