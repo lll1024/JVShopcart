@@ -26,9 +26,7 @@
     self.shopcartListArray = [JVShopcartBrandModel mj_objectArrayWithKeyValuesArray:dataArray];
     
     //成功之后回调
-    if ([self.delegate respondsToSelector:@selector(shopcartFormatRequestProductListDidSuccessWithArray:)]) {
-        [self.delegate shopcartFormatRequestProductListDidSuccessWithArray:self.shopcartListArray];
-    }
+    [self.delegate shopcartFormatRequestProductListDidSuccessWithArray:self.shopcartListArray];
 }
 
 - (void)selectProductAtIndexPath:(NSIndexPath *)indexPath isSelected:(BOOL)isSelected {
@@ -46,9 +44,7 @@
     
     brandModel.isSelected = isBrandSelected;
     
-    if ([self.delegate respondsToSelector:@selector(shopcartFormatAccountForTotalPrice:totalCount:isAllSelected:)]) {
-        [self.delegate shopcartFormatAccountForTotalPrice:[self accountTotalPrice] totalCount:[self accountTotalCount] isAllSelected:[self isAllSelected]];
-    }
+    [self.delegate shopcartFormatAccountForTotalPrice:[self accountTotalPrice] totalCount:[self accountTotalCount] isAllSelected:[self isAllSelected]];
 }
 
 - (void)selectBrandAtSection:(NSInteger)section isSelected:(BOOL)isSelected {
@@ -59,9 +55,7 @@
         aProductModel.isSelected = brandModel.isSelected;
     }
     
-    if ([self.delegate respondsToSelector:@selector(shopcartFormatAccountForTotalPrice:totalCount:isAllSelected:)]) {
-        [self.delegate shopcartFormatAccountForTotalPrice:[self accountTotalPrice] totalCount:[self accountTotalCount] isAllSelected:[self isAllSelected]];
-    }
+    [self.delegate shopcartFormatAccountForTotalPrice:[self accountTotalPrice] totalCount:[self accountTotalCount] isAllSelected:[self isAllSelected]];
 }
 
 - (void)changeCountAtIndexPath:(NSIndexPath *)indexPath count:(NSInteger)count {
@@ -76,9 +70,7 @@
     //根据请求结果决定是否改变数据
     productModel.productQty = count;
     
-    if ([self.delegate respondsToSelector:@selector(shopcartFormatAccountForTotalPrice:totalCount:isAllSelected:)]) {
-        [self.delegate shopcartFormatAccountForTotalPrice:[self accountTotalPrice] totalCount:[self accountTotalCount] isAllSelected:[self isAllSelected]];
-    }
+    [self.delegate shopcartFormatAccountForTotalPrice:[self accountTotalPrice] totalCount:[self accountTotalCount] isAllSelected:[self isAllSelected]];
 }
 
 - (void)deleteProductAtIndexPath:(NSIndexPath *)indexPath {
@@ -91,14 +83,10 @@
         [self.shopcartListArray removeObject:brandModel];
     }
     
-    if ([self.delegate respondsToSelector:@selector(shopcartFormatAccountForTotalPrice:totalCount:isAllSelected:)]) {
-        [self.delegate shopcartFormatAccountForTotalPrice:[self accountTotalPrice] totalCount:[self accountTotalCount] isAllSelected:[self isAllSelected]];
-    }
+    [self.delegate shopcartFormatAccountForTotalPrice:[self accountTotalPrice] totalCount:[self accountTotalCount] isAllSelected:[self isAllSelected]];
     
     if (self.shopcartListArray.count == 0) {
-        if ([self.delegate respondsToSelector:@selector(shopcartFormatHasDeleteAllProducts)]) {
-            [self.delegate shopcartFormatHasDeleteAllProducts];
-        }
+        [self.delegate shopcartFormatHasDeleteAllProducts];
     }
 }
 
@@ -112,9 +100,7 @@
         }
     }
     
-    if ([self.delegate respondsToSelector:@selector(shopcartFormatWillDeleteSelectedProducts:)]) {
-        [self.delegate shopcartFormatWillDeleteSelectedProducts:selectedArray];
-    }
+    [self.delegate shopcartFormatWillDeleteSelectedProducts:selectedArray];
 }
 
 - (void)deleteSelectedProducts:(NSArray *)selectedArray {
@@ -133,14 +119,10 @@
         [self.shopcartListArray removeObjectsInArray:emptyArray];
     }
     
-    if ([self.delegate respondsToSelector:@selector(shopcartFormatAccountForTotalPrice:totalCount:isAllSelected:)]) {
-        [self.delegate shopcartFormatAccountForTotalPrice:[self accountTotalPrice] totalCount:[self accountTotalCount] isAllSelected:[self isAllSelected]];
-    }
+    [self.delegate shopcartFormatAccountForTotalPrice:[self accountTotalPrice] totalCount:[self accountTotalCount] isAllSelected:[self isAllSelected]];
     
     if (self.shopcartListArray.count == 0) {
-        if ([self.delegate respondsToSelector:@selector(shopcartFormatHasDeleteAllProducts)]) {
-            [self.delegate shopcartFormatHasDeleteAllProducts];
-        }
+        [self.delegate shopcartFormatHasDeleteAllProducts];
     }
 }
 
@@ -162,9 +144,7 @@
         }
     }
     
-    if ([self.delegate respondsToSelector:@selector(shopcartFormatAccountForTotalPrice:totalCount:isAllSelected:)]) {
-        [self.delegate shopcartFormatAccountForTotalPrice:[self accountTotalPrice] totalCount:[self accountTotalCount] isAllSelected:[self isAllSelected]];
-    }
+    [self.delegate shopcartFormatAccountForTotalPrice:[self accountTotalPrice] totalCount:[self accountTotalCount] isAllSelected:[self isAllSelected]];
 }
 
 - (void)settleSelectedProducts {
@@ -184,9 +164,7 @@
         }
     }
     
-    if ([self.delegate respondsToSelector:@selector(shopcartFormatSettleForSelectedProducts:)]) {
-        [self.delegate shopcartFormatSettleForSelectedProducts:settleArray];
-    }
+    [self.delegate shopcartFormatSettleForSelectedProducts:settleArray];
 }
 
 #pragma mark private methods
