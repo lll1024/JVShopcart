@@ -44,7 +44,6 @@
 
 - (void)shopcartFormatRequestProductListDidSuccessWithArray:(NSMutableArray *)dataArray {
     self.shopcartTableViewProxy.dataArray = dataArray;
-    [self.shopcartTableViewProxy.dataArray addObjectsFromArray:dataArray];
     [self.shopcartTableView reloadData];
 }
 
