@@ -81,6 +81,20 @@
     [brandModel.products removeObject:productModel];
     if (brandModel.products.count == 0) {
         [self.shopcartListArray removeObject:brandModel];
+    } else {
+        if (!brandModel.isSelected) {
+            BOOL isBrandSelected = YES;
+            for (JVShopcartProductModel *aProductModel in brandModel.products) {
+                if (!aProductModel.isSelected) {
+                    isBrandSelected = NO;
+                    break;
+                }
+            }
+            
+            if (isBrandSelected) {
+                brandModel.isSelected = YES;
+            }
+        }
     }
     
     [self.delegate shopcartFormatAccountForTotalPrice:[self accountTotalPrice] totalCount:[self accountTotalCount] isAllSelected:[self isAllSelected]];

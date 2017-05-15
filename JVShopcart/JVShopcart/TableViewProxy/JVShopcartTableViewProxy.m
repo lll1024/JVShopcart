@@ -67,7 +67,6 @@
             weakSelf.shopcartProxyBrandSelectBlock(isSelected, section);
         }
     };
-    
     return shopcartHeaderView;
 }
 
