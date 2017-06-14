@@ -1,5 +1,8 @@
 # JVShopcart
 ___
+
+[Swift版本](https://github.com/linmaojia/MJShopCar)
+
 ## 效果图
 ![](https://github.com/lll1024/JVShopcart/blob/master/gif/2017-03-31%2010.43.23.gif)
 
