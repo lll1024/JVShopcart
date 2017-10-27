@@ -27,6 +27,7 @@
     [[IQKeyboardManager sharedManager] setToolbarDoneBarButtonItemText:@"完成"];
     
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

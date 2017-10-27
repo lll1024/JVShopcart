@@ -562,8 +562,8 @@
 				TargetAttributes = {
 					4725BCC91E837B6900A358F8 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = TC8NNQ638S;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = ZQ9RK3T5BR;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -787,12 +787,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = TC8NNQ638S;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = ZQ9RK3T5BR;
 				INFOPLIST_FILE = JVShopcart/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.AVGD.JVShopcart;
+				PRODUCT_BUNDLE_IDENTIFIER = com.guoguo.jiebao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "96775642-bd46-4678-a1be-06e008ece7d8";
+				PROVISIONING_PROFILE_SPECIFIER = ProfileDevLichengjuan;
 			};
 			name = Debug;
 		};
@@ -800,12 +804,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = TC8NNQ638S;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = ZQ9RK3T5BR;
 				INFOPLIST_FILE = JVShopcart/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.AVGD.JVShopcart;
+				PRODUCT_BUNDLE_IDENTIFIER = com.guoguo.jiebao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "c7569160-9af0-490f-a1a3-ea3b30801a00";
+				PROVISIONING_PROFILE_SPECIFIER = ProfileDevLichengjuan;
 			};
 			name = Release;
 		};

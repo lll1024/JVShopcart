@@ -42,20 +42,24 @@
 
 #pragma mark JVShopcartFormatDelegate
 
+//数据请求成功回调
 - (void)shopcartFormatRequestProductListDidSuccessWithArray:(NSMutableArray *)dataArray {
     self.shopcartTableViewProxy.dataArray = dataArray;
     [self.shopcartTableView reloadData];
 }
 
+//购物车视图需要更新时的统一回调
 - (void)shopcartFormatAccountForTotalPrice:(float)totalPrice totalCount:(NSInteger)totalCount isAllSelected:(BOOL)isAllSelected {
     [self.shopcartBottomView configureShopcartBottomViewWithTotalPrice:totalPrice totalCount:totalCount isAllselected:isAllSelected];
     [self.shopcartTableView reloadData];
 }
 
+//点击结算按钮后的回调
 - (void)shopcartFormatSettleForSelectedProducts:(NSArray *)selectedProducts {
     
 }
 
+//批量删除回调
 - (void)shopcartFormatWillDeleteSelectedProducts:(NSArray *)selectedProducts {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:[NSString stringWithFormat:@"确认要删除这%ld个宝贝吗？", selectedProducts.count] preferredStyle:UIAlertControllerStyleAlert];
     [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
@@ -65,6 +69,7 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 
+//全部删除回调
 - (void)shopcartFormatHasDeleteAllProducts {
     
 }
